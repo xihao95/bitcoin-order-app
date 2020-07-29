@@ -18,12 +18,12 @@ before_script:
   - npm install -g @angular/cli
 
 script:
-  - ng build --prod --base-href https://xihao95.github.io/bitcoin-order-app/
+  - ng build --prod --base-href https://xihao95@gmail.com.github.io/bitcoin-order-app/
 
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: 24b8a1e5870434ad30261f5ae4a68c4467b3fd4e
+  github_token: $GITHUB_TOKEN
   local_dir: dist/bitcoin
   edge: true
   on:
