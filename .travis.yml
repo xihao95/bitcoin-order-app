@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+  - node
+
+dist: bionic
+sudo: required
+
+notifications:
+  email:
+    recipients:
+      - xihao95@gmail.com
+    on_success: always
+    on_failure: always
+branches:
+  only:
+   - development
+before_script:
+  - npm install -g @angular/cli
+
+script:
+  - ng build --prod --base-href https://<your github username>.github.io/bitcoin-order-app/
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: 24b8a1e5870434ad30261f5ae4a68c4467b3fd4e
+  local_dir: dist/bitcoin
+  edge: true
+  on:
+    branch: development
